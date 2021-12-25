@@ -1,18 +1,41 @@
 package by.epam.ld.nb.main;
 
-import java.util.Collections;
-
 public class Main {
     public static void main(String[] args) {
 
-        Mark i = new Mark<Integer>();
+        MarkList<Mark<Integer>> list = new MarkList<>();
 
-        i.add(10);
-        i.add(4, 100);
-        i.add(5);
-        i.add(20);
-        i.remove();
-        i.remove(0);
-        System.out.println(i.toString());
+        list.add(new Mark<>(1));
+        list.add(new Mark<>(5));
+        list.add(new Mark<>(10));
+        list.add(new Mark<>(2));
+
+        System.out.println(list.toString());
+
+        list.add(1, new Mark<>(20));
+        list.add(5, new Mark<>(33));
+
+        System.out.println(list.toString());
+
+        list.sort();
+
+        list.remove();
+
+        System.out.println(list.toString());
+
+        list.remove(0);
+
+        System.out.println(list.toString());
+
+        list.add(new Mark<>(26));
+        list.add(new Mark<>(12));
+        list.add(new Mark<>(96));
+
+        System.out.println(list.toString());
+
+        list.sort(new MarkComparator<>());
+
+        System.out.println(list.toString());
+
     }
 }
